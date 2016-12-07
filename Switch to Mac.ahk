@@ -1,6 +1,6 @@
 ; NEEDS '*' because LCtrl key-repeat is otherwise interpreted as ALT+LCtrl.
 *LCtrl::
-   CtrlTabbed := false
+    CtrlTabbed := false
     Hotkey, *Tab, CtrlTab, On   ; Begin Ctrl+Tab (and release Alt) when we press Tab.
 
     Send {Alt Down}             ; Press Alt (LCtrl::Alt)
@@ -38,7 +38,7 @@ return
     Hotkey, *Tab, AltTab, On    ; Begin Alt+Tab (and release Ctrl) when we press Tab.
     Hotkey, *q, Qclose, On
 ;!!!! alt+d to desktop
-;    Hotkey, *d, DshowDesktop, On
+    Hotkey, *d, DshowDesktop, On
     Send {Ctrl Down}            ; Press Ctrl (LAlt::Ctrl)
     KeyWait, LAlt
     if AltTabbed
@@ -48,7 +48,7 @@ return
     Hotkey, *Tab, AltTab, Off
     Hotkey, *q, Qclose, Off
 ;!!!! alt + d to desktop
-;    Hotkey, *d, DshowDesktop, Off
+    Hotkey, *d, DshowDesktop, Off
 return
 
 AltTab:
@@ -69,18 +69,31 @@ Qclose:
     Send {Blind}{F4}           ; Press Tab without releasing any modifiers.
 return
 
-;!!!! alt + d to desktop
-;DshowDesktop:
-;    if (!AltTabbed) {
-;        Send {Ctrl Up}          ; Release Ctrl now.
-;        Send {Lwin Down}         ; Press down Alt. (Keeps the Alt+Tab menu open.)
-;        AltTabbed := true       ; Set a flag so we know to release Alt instead of Ctrl.
-;    }
-;    Send {Blind}{d}{Lwin up}           ; Press Tab without releasing any modifiers.
-;return
+; !!!! alt + d to desktop
+DshowDesktop:
+    if (!AltTabbed) {
+        Send {Ctrl Up}          ; Release Ctrl now.
+        Send {Lwin Down}         ; Press down Alt. (Keeps the Alt+Tab menu open.)
+        AltTabbed := true       ; Set a flag so we know to release Alt instead of Ctrl.
+    }
+    Send {Blind}{d}{Lwin up}           ; Press Tab without releasing any modifiers.
+return
 
-CAPSLOCK::LCTRL
-+CAPSLOCK::CAPSLOCK
+; CAPSLOCK::LCTRL
+; +CAPSLOCK::CAPSLOCK
 
 *Ralt::RCTRL
 *Rwin::Send {Lwin Down}{d}{Lwin Up}
+
+
+$Capslock::
+    Gui, 93:+Owner ; prevent display of taskbar button
+    Gui, 93:Show, y-99999 NA, capslock-hole
+    Send {RCtrl Down}
+    KeyWait, Capslock ; wait until the Capslock button is released
+    Gui, 93:Cancel
+    Send, {RCtrl Up}
+    ifinstring, A_PriorKey, Capslock
+        ; Send, {Esc}
+        SetCapsLockState % getkeystate("Capslock", "t") ? "off" : "on"
+Return
