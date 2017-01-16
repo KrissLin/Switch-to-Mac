@@ -1,35 +1,35 @@
 ; NEEDS '*' because LCtrl key-repeat is otherwise interpreted as ALT+LCtrl.
-*LCtrl::
-    CtrlTabbed := false
-    Hotkey, *Tab, CtrlTab, On   ; Begin Ctrl+Tab (and release Alt) when we press Tab.
+; *LCtrl::
+;     CtrlTabbed := false
+;     Hotkey, *Tab, CtrlTab, On   ; Begin Ctrl+Tab (and release Alt) when we press Tab.
 
-    Send {Alt Down}             ; Press Alt (LCtrl::Alt)
-    KeyWait, LCtrl
+;     Send {Alt Down}             ; Press Alt (LCtrl::Alt)
+;     KeyWait, LCtrl
 
-    if CtrlTabbed
-        Send {Ctrl Up}          ; Release Ctrl after Ctrl+Tabbing.
-    else
-        Send {Alt Up}{Lwin Up}           ; Release Alt (LCtrl::Alt)
-    
-    Hotkey, *Tab, CtrlTab, Off
+;     if CtrlTabbed
+;         Send {Ctrl Up}          ; Release Ctrl after Ctrl+Tabbing.
+;     else
+;         Send {Alt Up}{Lwin Up}           ; Release Alt (LCtrl::Alt)
+   
+;      Hotkey, *Tab, CtrlTab, Off
 
 
-return
+; return
 
-CtrlTab:
-    if (!CtrlTabbed) {
-        Send {Alt Up}           ; Release Alt now.
-        Send {Ctrl Down}        ; Press down Ctrl.
-        CtrlTabbed := true      ; Set a flag so we know to release Ctrl instead of Alt.
-    }
-    Send {Blind}{Tab}           ; Press Tab without releasing any modifiers.
-return
+; CtrlTab:
+;     if (!CtrlTabbed) {
+;         Send {Alt Up}           ; Release Alt now.
+;         Send {Ctrl Down}        ; Press down Ctrl.
+;         CtrlTabbed := true      ; Set a flag so we know to release Ctrl instead of Alt.
+;     }
+;     Send {Blind}{Tab}           ; Press Tab without releasing any modifiers.
+; return
 
 
 
 
 ; If you want LCtrl and LAlt to both do Alt+Tab, replace all of the above with:
-; LCtrl::Alt
+LCtrl::Alt
 
 
 ; NEEDS '*' because LAlt key-repeat is otherwise interpreted as CTRL+LAlt.
@@ -38,7 +38,7 @@ return
     Hotkey, *Tab, AltTab, On    ; Begin Alt+Tab (and release Ctrl) when we press Tab.
     Hotkey, *q, Qclose, On
 ;!!!! alt+d to desktop
-    Hotkey, *d, DshowDesktop, On
+    ; Hotkey, *d, DshowDesktop, On
     Send {Ctrl Down}            ; Press Ctrl (LAlt::Ctrl)
     KeyWait, LAlt
     if AltTabbed
@@ -48,7 +48,7 @@ return
     Hotkey, *Tab, AltTab, Off
     Hotkey, *q, Qclose, Off
 ;!!!! alt + d to desktop
-    Hotkey, *d, DshowDesktop, Off
+    ; Hotkey, *d, DshowDesktop, Off
 return
 
 AltTab:
@@ -70,14 +70,14 @@ Qclose:
 return
 
 ; !!!! alt + d to desktop
-DshowDesktop:
-    if (!AltTabbed) {
-        Send {Ctrl Up}          ; Release Ctrl now.
-        Send {Lwin Down}         ; Press down Alt. (Keeps the Alt+Tab menu open.)
-        AltTabbed := true       ; Set a flag so we know to release Alt instead of Ctrl.
-    }
-    Send {Blind}{d}{Lwin up}           ; Press Tab without releasing any modifiers.
-return
+; DshowDesktop:
+    ; if (!AltTabbed) {
+    ;     Send {Ctrl Up}          ; Release Ctrl now.
+    ;     Send {Lwin Down}         ; Press down Alt. (Keeps the Alt+Tab menu open.)
+    ;     AltTabbed := true       ; Set a flag so we know to release Alt instead of Ctrl.
+    ; }
+    ; Send {Blind}{d}{Lwin up}           ; Press Tab without releasing any modifiers.
+; return
 
 ; CAPSLOCK::LCTRL
 ; +CAPSLOCK::CAPSLOCK
