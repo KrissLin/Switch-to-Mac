@@ -1,0 +1,30 @@
+{
+	"always_show_minimap_viewport": true,
+	"auto_match_enabled": true,
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/User/SublimeLinter/Flatland Dark (SL).tmTheme",
+	"dpi_scale": 1.25,
+	"enable_tab_scrolling": false,
+	"font_face": "Consolas",
+	"font_size": 16,
+	"ignored_packages":
+	[
+		"Color Highlighter",
+		"Colorsublime",
+		"GitGutter-Edge",
+		"Gutter Color",
+		"Matlab Completions",
+		"SublimeLinter-javac"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"line_padding_bottom": 3,
+	"line_padding_top": 3,
+	"overlay_scroll_bars": "enabled",
+	"scroll_past_end": true,
+	"theme": "SoDaReloaded Dark.sublime-theme",
+	"word_wrap": true
+}
