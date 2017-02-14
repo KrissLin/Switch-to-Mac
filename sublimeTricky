@@ -1,0 +1,16 @@
+Tricky sublime operations:
+
+from:https://forum.sublimetext.com/t/vintage-surrounding-double-quotes/2875/5
+
+I don't know about ST2 but in ST3 brackets and parenthesis work fine by just selecting the opening bracket.
+
+To wrap apostrophes or quotes in Vintage mode you **don't **need the Surround plugin. 
+All you need to do is:
+
+select (multi) lines in Visual mode
+
+hit apostrophe or Shift+apostrophe (nothing appears to happen)
+
+hit ESC
+
+note: this technique doesn't seem to work with the Vintageous plugin. Only with the built-in Vintage mode.
