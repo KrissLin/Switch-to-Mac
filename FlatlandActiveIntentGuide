@@ -1,0 +1,14 @@
+use PackageResourceViewer: Open Resource
+
+Flatland Dark.tmTheme
+
+				<key>guide</key>
+				<string>#73797b30</string>
+
+				<key>stackGuide</key>
+				<string>#73797b30</string>
+
+				<key>activeGuide</key>
+				<string>#fa9a4b</string>
+        
+ColorHighlight has to be reinstalled after this modification.
