@@ -1,5 +1,4 @@
 // ~/.config/karabiner/karabiner.json
-
 {
     "global": {
         "check_for_updates_on_startup": true,
@@ -412,8 +411,12 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "escape"
+                                      "key_code": "spacebar",
+                                      "modifiers": [
+                                        "left_command"
+                                      ]
                                     }
+
                                 ],
                                 "type": "basic"
                             }
