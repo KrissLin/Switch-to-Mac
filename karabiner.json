@@ -1,4 +1,3 @@
-// ~/.config/karabiner/karabiner.json
 {
     "global": {
         "check_for_updates_on_startup": true,
@@ -847,6 +846,139 @@
                     {
                         "description": "SpaceFN: Space+[hjkl] to Left, Down, Up, Right",
                         "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "spacefn_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    },
+                                    {
+                                        "key_code": "down_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "spacefn_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow"
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    },
+                                    {
+                                        "key_code": "up_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
                             {
                                 "conditions": [
                                     {
