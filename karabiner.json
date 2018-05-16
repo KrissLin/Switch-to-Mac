@@ -593,7 +593,7 @@
                     {
                         "description": "SpaceFN: Space+[hjkl] to Left, Down, Up, Right",
                         "manipulators": [
-                            {
+                           {
                                 "conditions": [
                                     {
                                         "name": "spacefn_mode",
@@ -602,7 +602,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "w",
+                                    "key_code": "semicolon",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -610,41 +610,67 @@
                                     }
                                 },
                                 "to": [
-                                    {
-                                        "key_code": "escape"
-                                    },
-                                    {
-                                        "key_code": "w"
-                                    }
+                                   {
+                                       "key_code": "4",
+                                       "modifiers": [
+                                           "left_shift"
+                                       ]
+                                   } 
                                 ],
                                 "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "spacefn_mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "b",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "escape"
-                                    },
-                                    {
-                                        "key_code": "b"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
+                            }, 
+                            // {
+                            //     "conditions": [
+                            //         {
+                            //             "name": "spacefn_mode",
+                            //             "type": "variable_if",
+                            //             "value": 1
+                            //         }
+                            //     ],
+                            //     "from": {
+                            //         "key_code": "w",
+                            //         "modifiers": {
+                            //             "optional": [
+                            //                 "any"
+                            //             ]
+                            //         }
+                            //     },
+                            //     "to": [
+                            //         {
+                            //             "key_code": "escape"
+                            //         },
+                            //         {
+                            //             "key_code": "w"
+                            //         }
+                            //     ],
+                            //     "type": "basic"
+                            // },
+                            // {
+                            //     "conditions": [
+                            //         {
+                            //             "name": "spacefn_mode",
+                            //             "type": "variable_if",
+                            //             "value": 1
+                            //         }
+                            //     ],
+                            //     "from": {
+                            //         "key_code": "b",
+                            //         "modifiers": {
+                            //             "optional": [
+                            //                 "any"
+                            //             ]
+                            //         }
+                            //     },
+                            //     "to": [
+                            //         {
+                            //             "key_code": "escape"
+                            //         },
+                            //         {
+                            //             "key_code": "b"
+                            //         }
+                            //     ],
+                            //     "type": "basic"
+                            // },
                             {
                                 "conditions": [
                                     {
