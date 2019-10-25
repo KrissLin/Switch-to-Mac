@@ -15,7 +15,6 @@
                     "mouse_motion_to_scroll.speed": 100
                 },
                 "rules": [
-                    
                     {
                         "description": "Home End PageUp PageDown to resize windows",
                         "manipulators": [
@@ -114,11 +113,9 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },
+                            }
                         ]
-                    }
-
-
+                    },
                     {
                         "description": "Post Escape if grave_accent_and_tilde (backtick) is pressed alone; post grave_accent (backtick) if Option + grave_accent_and_tilde is pressed.",
                         "manipulators": [
@@ -243,7 +240,6 @@
                             }
                         ]
                     },
-
                     {
                         "description": "SpaceFN: Space enables SpaceFN mode (see: https://geekhack.org/index.php?topic=51069.0)",
                         "manipulators": [
