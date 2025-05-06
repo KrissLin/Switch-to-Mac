@@ -3,7 +3,52 @@
     "profiles": [
         {
             "complex_modifications": {
+                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 50 },
                 "rules": [
+                    {
+                        "description": "Hyper Key: Tab (held down) → left control + left command (⌃⌘)",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "tab" },
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "hyper_tab_held_down",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "tab" }],
+                                "to_if_held_down": [
+                                    {
+                                        "set_variable": {
+                                            "name": "hyper_tab_held_down",
+                                            "value": 1
+                                        }
+                                    },
+                                    { "key_code": "left_control" }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Use Option + spacebar to switch between input sources",
+                        "enabled": false,
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "mandatory": ["left_option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "f19" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
                     {
                         "description": "Change incott mouse buttons",
                         "enabled": false,
@@ -672,15 +717,46 @@
                         ]
                     },
                     {
-                        "description": "Change caps_lock to control if pressed with other keys, to escape if pressed alone.",
+                        "description": "Change caps_lock to control if pressed with other keys, to F19 for language switch if pressed alone. Not for iTerm2",
                         "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "mandatory": "left_shift", "optional": ["any"] }
+                                },
+                                "to_if_alone": [{ "key_code": "f19" }],
+                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.googlecode.iterm2"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ]
+                            },
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to_if_alone": [{ "key_code": "f19" }],
+                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.googlecode.iterm2"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ]
+                            },
                             {
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "left_control" }],
-                                "to_if_alone": [{ "key_code": "f19" }],
                                 "type": "basic"
                             }
                         ]
@@ -797,6 +873,25 @@
                                     }
                                 ],
                                 "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "6",
+                                    "modifiers": {
+                                        "mandatory": ["right_command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_mode_id": "im.rime.inputmethod.Squirrel.Hans",
+                                            "input_source_id": "im.rime.inputmethod.Squirrel.Hans",
+                                            "language": "zh-Hans"
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
                             }
                         ]
                     }
@@ -864,7 +959,6 @@
                     "manipulate_caps_lock_led": false
                 },
                 {
-                    "disable_built_in_keyboard_if_exists": true,
                     "identifiers": {
                         "is_keyboard": true,
                         "product_id": 269,
